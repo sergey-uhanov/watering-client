@@ -1,7 +1,9 @@
-export const WEBSOCKET_URL = 'http://localhost:8082'
-export const WEBSOCKET_CLIENT_ID = 'frontend-admin'
-export const WEBSOCKET_DEVICE_ID = 'esp-32'
-export const WEBSOCKET_RECONNECT_DELAY = 5000
+export const WEBSOCKET_URL = import.meta.env.VITE_WEBSOCKET_URL
+export const WEBSOCKET_CLIENT_ID = import.meta.env.VITE_WEBSOCKET_CLIENT_ID
+export const WEBSOCKET_DEVICE_ID = import.meta.env.VITE_WEBSOCKET_DEVICE_ID
+export const WEBSOCKET_RECONNECT_DELAY = Number(
+  import.meta.env.VITE_WEBSOCKET_RECONNECT_DELAY,
+)
 
 export const WEBSOCKET_MESSAGE_TYPES = {
   register: 'register',
