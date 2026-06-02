@@ -1,0 +1,51 @@
+:root {
+  --color-bg: #f4efe4;
+  --color-surface: #fffaf0;
+  --color-surface-strong: #f0dfbd;
+  --color-text: #1f2a24;
+  --color-muted: #69746b;
+  --color-primary: #2f6f4e;
+  --color-primary-hover: #25583e;
+  --color-danger: #b83b2d;
+  --color-danger-hover: #963126;
+  --color-border: #d8c9aa;
+  --color-focus: #d79b32;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --font-size-sm: 14px;
+  --font-size-md: 16px;
+  --font-size-lg: 20px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  color: var(--color-text);
+  font-family: Georgia, 'Times New Roman', serif;
+  background:
+    radial-gradient(circle at top left, rgba(47, 111, 78, 0.16), transparent 32rem),
+    linear-gradient(135deg, #f7f0df 0%, #e9dcc2 100%);
+}
+
+a {
+  color: inherit;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+#app {
+  min-height: 100vh;
+}
