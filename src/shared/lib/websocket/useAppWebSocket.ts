@@ -49,6 +49,7 @@ export const useAppWebSocket = () => {
 
   if (!stopStatusWatcher) {
     socketScope.run(() => {
+      console.log('ws running watcher')
       stopStatusWatcher = watch(
         socket!.status,
         (value) => {
