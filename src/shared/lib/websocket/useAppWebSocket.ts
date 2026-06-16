@@ -3,7 +3,7 @@ import type { UseWebSocketReturn } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import { computed, effectScope, ref, watch } from 'vue'
 
-import { useWateringStore } from '@/entities/watering'
+
 import {
   WEBSOCKET_CLIENT_ID,
   WEBSOCKET_DEVICE_ID,
@@ -11,6 +11,7 @@ import {
   WEBSOCKET_RECONNECT_DELAY,
   WEBSOCKET_URL,
 } from '@/shared/config/websocket'
+import {useWateringStore} from "@/entities/pool";
 
 let socket: UseWebSocketReturn<unknown> | null = null
 const socketScope = effectScope(true)

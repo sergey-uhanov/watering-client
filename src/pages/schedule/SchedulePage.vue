@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
 
-import { useWateringStore } from '@/entities/watering'
+
 import { BaseButton, BaseCheckbox, BaseDatePicker, BaseRadioGroup } from '@/shared/ui'
 import { AppLayout } from '@/widgets/app-layout'
+import { useWateringStore } from "@/entities/pool"
 
 const wateringStore = useWateringStore()
 const { settings } = storeToRefs(wateringStore)

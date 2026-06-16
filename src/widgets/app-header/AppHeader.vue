@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
+import {useWateringStore} from "@/entities/pool";
 
-import { useWateringStore } from '@/entities/watering'
 
 const navItems = [
   { to: '/', label: 'Панель' },

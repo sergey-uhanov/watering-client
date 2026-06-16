@@ -1,0 +1,14 @@
+.git
+.idea
+.vscode
+node_modules
+dist
+dist-ssr
+coverage
+logs
+*.log
+.eslintcache
+*.tsbuildinfo
+.env
+Dockerfile
+docker-compose.yml

@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
 
-import { useWateringStore } from '@/entities/watering'
+
 import { useAppWebSocket } from '@/shared/lib/websocket'
 import { BaseButton } from '@/shared/ui'
 import { AppLayout } from '@/widgets/app-layout'
+import {useWateringStore} from "@/entities/pool";
 
 const wateringStore = useWateringStore()
 const { isDeviceOnline } = storeToRefs(wateringStore)
