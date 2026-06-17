@@ -9,6 +9,5 @@ logs
 *.log
 .eslintcache
 *.tsbuildinfo
-.env
 Dockerfile
 docker-compose.yml

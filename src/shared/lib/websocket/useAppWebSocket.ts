@@ -41,10 +41,12 @@ export const useAppWebSocket = () => {
   const { isDeviceOnline, isSocketOpen } = storeToRefs(wateringStore)
 
   if (!socket) {
+    console.log('WEBSOCKET_URL',WEBSOCKET_URL)
     socket = useWebSocket(WEBSOCKET_URL, {
       autoClose: false,
       autoReconnect: false,
     })
+    console.log('socket.status',socket.status)
   }
 
   if (!stopStatusWatcher) {
