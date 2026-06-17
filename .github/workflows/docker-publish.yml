@@ -24,7 +24,7 @@ jobs:
 
       - name: Deploy on server
         run: |
-          ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << 'EOF'
+          ssh -з 3333 ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << 'EOF'
             cd ~/projects/watering-client
             git pull origin master
             docker compose down
