@@ -9,6 +9,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Debug
+        run: |
+         echo "HOST=${{ secrets.SSH_HOST }}"
       - name: Checkout repo
         uses: actions/checkout@v4
 
@@ -22,7 +25,7 @@ jobs:
       - name: Deploy on server
         run: |
           ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << 'EOF'
-            cd ~/watering-client
+            cd ~/projects/watering-client
             git pull origin master
             docker compose down
             docker compose up --build -d
