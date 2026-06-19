@@ -20,7 +20,7 @@ const { deviceStatus, socketStatus, isDeviceOnline, isSocketOpen } = storeToRefs
       <div class="app-header__statuses" aria-label="Статусы подключения">
         <span class="app-header__status" :class="{ 'app-header__status--online': isSocketOpen }">
           <span class="app-header__dot" aria-hidden="true" />
-          Сервер: {{ socketStatus }}
+          Сервер: {{ socketStatus === 'OPEN' ? 'Online' : 'Offline'}}
         </span>
         <span class="app-header__status" :class="{ 'app-header__status--online': isDeviceOnline }">
           <span class="app-header__dot" aria-hidden="true" />
@@ -36,7 +36,7 @@ const { deviceStatus, socketStatus, isDeviceOnline, isSocketOpen } = storeToRefs
   </header>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .app-header {
   display: grid;
   gap: var(--space-md);
@@ -46,68 +46,70 @@ const { deviceStatus, socketStatus, isDeviceOnline, isSocketOpen } = storeToRefs
   padding: var(--space-md);
   background: rgba(255, 250, 240, 0.78);
   backdrop-filter: blur(16px);
-}
 
-.app-header__top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-md);
-}
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-md);
+  }
 
-.app-header__brand {
-  font-size: var(--font-size-lg);
-  font-weight: 700;
-  text-decoration: none;
-}
+  &__brand {
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    text-decoration: none;
+  }
 
-.app-header__nav,
-.app-header__statuses {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-sm);
-}
+  &__nav,
+  &__statuses {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+  }
 
-.app-header__link {
-  border-radius: var(--radius-md);
-  padding: var(--space-sm) var(--space-md);
-  color: var(--color-muted);
-  text-decoration: none;
-}
+  &__link {
+    border-radius: var(--radius-md);
+    padding: var(--space-sm) var(--space-md);
+    color: var(--color-muted);
+    text-decoration: none;
 
-.app-header__link.router-link-active {
-  color: #fff;
-  background: var(--color-primary);
-}
+    &.router-link-active {
+      color: #fff;
+      background: var(--color-primary);
+    }
+  }
 
-.app-header__status {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-sm);
-  border: 1px solid var(--color-border);
-  border-radius: 999px;
-  padding: var(--space-sm) var(--space-md);
-  color: var(--color-danger);
-  background: #fff;
-  font-size: var(--font-size-sm);
-  font-weight: 700;
-}
+  &__status {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    padding: var(--space-sm) var(--space-md);
+    color: var(--color-danger);
+    background: #fff;
+    font-size: var(--font-size-sm);
+    font-weight: 700;
 
-.app-header__status--online {
-  color: var(--color-primary);
-}
+    &--online {
+      color: var(--color-primary);
+    }
+  }
 
-.app-header__dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: currentColor;
+  &__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: currentColor;
+  }
 }
 
 @media (max-width: 720px) {
-  .app-header__top {
-    align-items: flex-start;
-    flex-direction: column;
+  .app-header {
+    &__top {
+      align-items: flex-start;
+      flex-direction: column;
+    }
   }
 }
 </style>

@@ -15,7 +15,7 @@ import { AppLayout } from '@/widgets/app-layout'
   </AppLayout>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .not-found-page {
   display: grid;
   justify-items: start;
@@ -24,17 +24,17 @@ import { AppLayout } from '@/widgets/app-layout'
   border-radius: var(--radius-lg);
   padding: clamp(24px, 4vw, 40px);
   background: var(--color-surface);
-}
 
-.not-found-page__code {
-  margin: 0;
-  color: var(--color-primary);
-  font-size: 80px;
-  font-weight: 700;
-  line-height: 1;
-}
+  &__code {
+    margin: 0;
+    color: var(--color-primary);
+    font-size: 80px;
+    font-weight: 700;
+    line-height: 1;
+  }
 
-.not-found-page__title {
-  margin: 0;
+  &__title {
+    margin: 0;
+  }
 }
 </style>

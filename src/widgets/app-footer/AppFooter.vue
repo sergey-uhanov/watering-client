@@ -5,7 +5,7 @@
   </footer>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .app-footer {
   display: flex;
   flex-wrap: wrap;

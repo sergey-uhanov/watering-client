@@ -20,7 +20,7 @@ const modeOptions = [
     <section class="schedule-page">
       <div>
         <p class="schedule-page__eyebrow">Расписание</p>
-        <h1 class="schedule-page__title">Настройка запуска полива</h1>
+        <h1 class="schedule-page__title">Настройка запуска фильтрации</h1>
       </div>
 
       <form class="schedule-page__form">
@@ -28,7 +28,7 @@ const modeOptions = [
           :model-value="settings.enabled"
           @update:model-value="wateringStore.setEnabled"
         >
-          Полив включен
+          Фильтрация включен
         </BaseCheckbox>
 
         <BaseRadioGroup
@@ -50,7 +50,7 @@ const modeOptions = [
   </AppLayout>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .schedule-page {
   display: grid;
   gap: var(--space-lg);
@@ -58,22 +58,22 @@ const modeOptions = [
   border-radius: var(--radius-lg);
   padding: clamp(24px, 4vw, 40px);
   background: var(--color-surface);
-}
 
-.schedule-page__eyebrow {
-  margin: 0 0 var(--space-sm);
-  color: var(--color-primary);
-  font-weight: 700;
-}
+  &__eyebrow {
+    margin: 0 0 var(--space-sm);
+    color: var(--color-primary);
+    font-weight: 700;
+  }
 
-.schedule-page__title {
-  margin: 0;
-  font-size: clamp(30px, 5vw, 52px);
-}
+  &__title {
+    margin: 0;
+    font-size: clamp(30px, 5vw, 52px);
+  }
 
-.schedule-page__form {
-  display: grid;
-  max-width: 520px;
-  gap: var(--space-lg);
+  &__form {
+    display: grid;
+    max-width: 520px;
+    gap: var(--space-lg);
+  }
 }
 </style>

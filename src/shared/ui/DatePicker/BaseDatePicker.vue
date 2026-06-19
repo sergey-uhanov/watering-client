@@ -36,25 +36,25 @@ const emit = defineEmits<{
   </label>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .base-date-picker {
   display: grid;
   gap: var(--space-sm);
-}
 
-.base-date-picker__label {
-  color: var(--color-muted);
-  font-size: var(--font-size-sm);
-  font-weight: 700;
+  &__label {
+    color: var(--color-muted);
+    font-size: var(--font-size-sm);
+    font-weight: 700;
+  }
 }
 
 :deep(.dp__input) {
   border-color: var(--color-border);
   border-radius: var(--radius-md);
   padding-block: 10px;
-}
 
-:deep(.dp__input:focus) {
-  border-color: var(--color-focus);
+  &:focus {
+    border-color: var(--color-focus);
+  }
 }
 </style>

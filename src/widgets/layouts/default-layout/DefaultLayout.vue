@@ -16,15 +16,15 @@ useAppWebSocket()
   </div>
 </template>
 
-<style scoped>
+<style lang="scss">
 .default-layout {
   width: min(1120px, calc(100% - 32px));
   padding: 0 15px;
   margin: 0 auto;
-}
 
-.default-layout__main {
-  display: grid;
-  gap: var(--space-lg);
+  &__main {
+    display: grid;
+    gap: var(--space-lg);
+  }
 }
 </style>

@@ -33,7 +33,7 @@ const emit = defineEmits<{
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .base-radio-group {
   display: flex;
   flex-wrap: wrap;

@@ -14,28 +14,28 @@ import { AppLayout } from '@/widgets/app-layout'
   </AppLayout>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .settings-page {
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   padding: clamp(24px, 4vw, 40px);
   background: var(--color-surface);
-}
 
-.settings-page__eyebrow {
-  margin: 0 0 var(--space-sm);
-  color: var(--color-primary);
-  font-weight: 700;
-}
+  &__eyebrow {
+    margin: 0 0 var(--space-sm);
+    color: var(--color-primary);
+    font-weight: 700;
+  }
 
-.settings-page__title {
-  margin: 0 0 var(--space-md);
-  font-size: clamp(30px, 5vw, 52px);
-}
+  &__title {
+    margin: 0 0 var(--space-md);
+    font-size: clamp(30px, 5vw, 52px);
+  }
 
-.settings-page__text {
-  max-width: 620px;
-  margin: 0;
-  color: var(--color-muted);
+  &__text {
+    max-width: 620px;
+    margin: 0;
+    color: var(--color-muted);
+  }
 }
 </style>
