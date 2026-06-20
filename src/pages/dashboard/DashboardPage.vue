@@ -22,7 +22,7 @@ const {sendLedOn, sendLedOff, checkWaterline} = useAppWebSocket()
        <div class="dashboard-card__panel-change">
          <BaseButton :disabled="!isDeviceOnline" @click="sendLedOn">Включить LED</BaseButton>
          <BaseButton :disabled="!isDeviceOnline" @click="sendLedOff">Выключить LED</BaseButton>
-         <BaseButton :disabled="!isDeviceOnline" @click="sendLedOff">Замер уровня воды</BaseButton>
+         <BaseButton :disabled="!isDeviceOnline" @click="checkWaterline">Замер уровня воды</BaseButton>
        </div>
        <div class="dashboard-card__panel-information">
          <article class="dashboard-card__info-item">
