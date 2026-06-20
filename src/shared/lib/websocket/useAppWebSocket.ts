@@ -120,6 +120,13 @@ export const useAppWebSocket = () => {
       deviceId: WEBSOCKET_DEVICE_ID,
     })
   }
+  const checkWaterline = () => {
+    sendMessage({
+      type: WEBSOCKET_MESSAGE_TYPES.checkWaterline,
+      deviceId: WEBSOCKET_DEVICE_ID,
+    })
+    }
+
 
   return {
     status: computed(() => socket?.status.value ?? 'CLOSED'),
@@ -131,5 +138,6 @@ export const useAppWebSocket = () => {
     sendMessage,
     sendLedOn,
     sendLedOff,
+    checkWaterline
   }
 }
