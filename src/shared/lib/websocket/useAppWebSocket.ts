@@ -121,6 +121,7 @@ export const useAppWebSocket = () => {
     })
   }
   const checkWaterline = () => {
+    console.log('checkWaterline action')
     sendMessage({
       type: WEBSOCKET_MESSAGE_TYPES.checkWaterline,
       deviceId: WEBSOCKET_DEVICE_ID,
