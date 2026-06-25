@@ -83,7 +83,7 @@ export const useAppWebSocket = () => {
     socketScope.run(() => {
       stopDataWatcher = watch(socket!.data, (value) => {
         const message = parseServerMessage(value)
-
+        console.log('message',message)
         if (!message) {
           if (value) wateringStore.setError('Получено некорректное сообщение от сервера')
           return
@@ -128,6 +128,14 @@ export const useAppWebSocket = () => {
     })
     }
 
+  const sentFilterOn = () => {
+    console.log('filter on  action')
+    sendMessage({
+      type: WEBSOCKET_MESSAGE_TYPES.sentFilterOn,
+      deviceId: WEBSOCKET_DEVICE_ID,
+    })
+    }
+
 
   return {
     status: computed(() => socket?.status.value ?? 'CLOSED'),
@@ -139,6 +147,7 @@ export const useAppWebSocket = () => {
     sendMessage,
     sendLedOn,
     sendLedOff,
-    checkWaterline
+    checkWaterline,
+    sentFilterOn
   }
 }

@@ -11,7 +11,8 @@ export const WEBSOCKET_MESSAGE_TYPES = {
   esp32Offline: 'esp32 is offline',
   ledOn: 'LED_ON',
   ledOff: 'LED_OFF',
-  checkWaterline: 'CHECK_WATERLINE'
+  checkWaterline: 'CHECK_WATERLINE',
+  sentFilterOn: 'FILTER_ON',
 } as const
 
 export type WebSocketMessageType =
