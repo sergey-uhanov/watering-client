@@ -128,7 +128,7 @@ export const useAppWebSocket = () => {
     })
     }
 
-  const sentFilterOn = () => {
+  const sendFilterOn = () => {
     console.log('filter on  action')
     sendMessage({
       type: WEBSOCKET_MESSAGE_TYPES.sentFilterOn,
@@ -148,6 +148,6 @@ export const useAppWebSocket = () => {
     sendLedOn,
     sendLedOff,
     checkWaterline,
-    sentFilterOn
+    sendFilterOn
   }
 }
