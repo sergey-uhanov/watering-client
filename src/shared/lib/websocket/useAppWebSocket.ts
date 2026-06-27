@@ -4,6 +4,7 @@ import {storeToRefs} from 'pinia'
 import {computed, effectScope, ref, watch} from 'vue'
 
 
+import {useWateringStore} from '@/entities/pool'
 import {
   WEBSOCKET_CLIENT_ID,
   WEBSOCKET_DEVICE_ID,
@@ -11,7 +12,7 @@ import {
   WEBSOCKET_RECONNECT_DELAY,
   WEBSOCKET_URL,
 } from '@/shared/config/websocket'
-import {useWateringStore} from "@/entities/pool";
+import {useToastStore, type ToastStatus} from '@/shared/ui/Toast'
 
 let socket: UseWebSocketReturn<unknown> | null = null
 const socketScope = effectScope(true)
@@ -26,18 +27,38 @@ const clearReconnectTimer = () => {
   reconnectTimer.value = null
 }
 
+type ServerMessage = {
+  type?: string
+  status?: string
+  message?: string
+}
+
 const parseServerMessage = (value: unknown) => {
   if (typeof value !== 'string' || !value) return null
 
   try {
-    return JSON.parse(value) as { type?: string }
+    return JSON.parse(value) as ServerMessage
   } catch {
     return null
   }
 }
 
+const getToastStatus = (status?: string): ToastStatus => {
+  switch (status?.toUpperCase()) {
+    case 'OK':
+      return 'success'
+    case 'WARNING':
+      return 'warning'
+    case 'ERROR':
+      return 'error'
+    default:
+      return 'warning'
+  }
+}
+
 export const useAppWebSocket = () => {
   const wateringStore = useWateringStore()
+  const toastStore = useToastStore()
   const {isDeviceOnline, isSocketOpen} = storeToRefs(wateringStore)
 
   if (!socket) {
@@ -98,6 +119,9 @@ export const useAppWebSocket = () => {
           case WEBSOCKET_MESSAGE_TYPES.esp32Offline:
             wateringStore.setDeviceStatus('offline')
             break
+          case WEBSOCKET_MESSAGE_TYPES.deviceAck:
+            toastStore.show(getToastStatus(message.status), message.message)
+            break
         }
       })
     })
@@ -156,6 +180,6 @@ export const useAppWebSocket = () => {
     sendLedOff,
     checkWaterline,
     sendFilterOn,
-    sendFilterOff
+    sendFilterOff,
   }
 }

@@ -14,6 +14,7 @@ export const WEBSOCKET_MESSAGE_TYPES = {
   checkWaterline: 'CHECK_WATERLINE',
   sentFilterOn: 'FILTER_ON',
   sentFilterOff: 'FILTER_OFF',
+  deviceAck: 'device_ack',
 } as const
 
 export type WebSocketMessageType =

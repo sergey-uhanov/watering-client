@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useAppWebSocket } from '@/shared/lib/websocket'
+import { BaseToast } from '@/shared/ui'
 import { AppFooter } from '@/widgets/app-footer'
 import { AppHeader } from '@/widgets/app-header'
 
@@ -13,6 +14,7 @@ useAppWebSocket()
       <slot />
     </main>
     <AppFooter />
+    <BaseToast />
   </div>
 </template>
 
