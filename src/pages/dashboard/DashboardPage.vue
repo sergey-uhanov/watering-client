@@ -20,9 +20,7 @@ const {sendLedOn, sendLedOff, checkWaterline,sendFilterOn,sendFilterOff} = useAp
       </div>
      <div class="dashboard-card__panels">
        <div class="dashboard-card__panel-change">
-         <BaseButton :disabled="!isDeviceOnline" @click="sendLedOn">Включить LED</BaseButton>
-         <BaseButton :disabled="!isDeviceOnline" @click="sendLedOff">Выключить LED</BaseButton>
-         <BaseButton :disabled="!isDeviceOnline" @click="checkWaterline">Замер уровня воды</BaseButton>
+         <BaseButton :disabled="true" @click="checkWaterline">Замер уровня воды</BaseButton>
          <BaseButton :disabled="!isDeviceOnline" @click="sendFilterOn">Включить фильтр</BaseButton>
          <BaseButton :disabled="!isDeviceOnline" @click="sendFilterOff">Отключить фильтр</BaseButton>
        </div>
@@ -75,6 +73,11 @@ const {sendLedOn, sendLedOff, checkWaterline,sendFilterOn,sendFilterOff} = useAp
     display: grid;
     grid-template-columns: minmax(200px, 700px) minmax(200px, 1fr);
     gap: 16px;
+
+    @media (max-width: 576px) {
+      display: flex;
+      flex-direction: column-reverse;
+    }
   }
 
   &__panel-change{
