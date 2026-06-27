@@ -9,7 +9,7 @@ import {useWateringStore} from "@/entities/pool";
 
 const wateringStore = useWateringStore()
 const {isDeviceOnline} = storeToRefs(wateringStore)
-const {sendLedOn, sendLedOff, checkWaterline,sendFilterOn,sendFilterOff} = useAppWebSocket()
+const { checkWaterline,sendFilterOn,sendFilterOff} = useAppWebSocket()
 </script>
 
 <template>
