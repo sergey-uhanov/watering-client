@@ -1,7 +1,7 @@
-import { useWebSocket } from '@vueuse/core'
-import type { UseWebSocketReturn } from '@vueuse/core'
-import { storeToRefs } from 'pinia'
-import { computed, effectScope, ref, watch } from 'vue'
+import type {UseWebSocketReturn} from '@vueuse/core'
+import {useWebSocket} from '@vueuse/core'
+import {storeToRefs} from 'pinia'
+import {computed, effectScope, ref, watch} from 'vue'
 
 
 import {
@@ -38,7 +38,7 @@ const parseServerMessage = (value: unknown) => {
 
 export const useAppWebSocket = () => {
   const wateringStore = useWateringStore()
-  const { isDeviceOnline, isSocketOpen } = storeToRefs(wateringStore)
+  const {isDeviceOnline, isSocketOpen} = storeToRefs(wateringStore)
 
   if (!socket) {
     socket = useWebSocket(WEBSOCKET_URL, {
@@ -74,7 +74,7 @@ export const useAppWebSocket = () => {
             )
           }
         },
-        { immediate: true },
+        {immediate: true},
       )
     })
   }
@@ -83,7 +83,7 @@ export const useAppWebSocket = () => {
     socketScope.run(() => {
       stopDataWatcher = watch(socket!.data, (value) => {
         const message = parseServerMessage(value)
-        console.log('message',message)
+        console.log('message', message)
         if (!message) {
           if (value) wateringStore.setError('Получено некорректное сообщение от сервера')
           return
@@ -126,7 +126,7 @@ export const useAppWebSocket = () => {
       type: WEBSOCKET_MESSAGE_TYPES.checkWaterline,
       deviceId: WEBSOCKET_DEVICE_ID,
     })
-    }
+  }
 
   const sendFilterOn = () => {
     console.log('filter on  action')
@@ -134,7 +134,14 @@ export const useAppWebSocket = () => {
       type: WEBSOCKET_MESSAGE_TYPES.sentFilterOn,
       deviceId: WEBSOCKET_DEVICE_ID,
     })
-    }
+  }
+  const sendFilterOff = () => {
+    console.log('filter off  action')
+    sendMessage({
+      type: WEBSOCKET_MESSAGE_TYPES.sentFilterOff,
+      deviceId: WEBSOCKET_DEVICE_ID,
+    })
+  }
 
 
   return {
@@ -148,6 +155,7 @@ export const useAppWebSocket = () => {
     sendLedOn,
     sendLedOff,
     checkWaterline,
-    sendFilterOn
+    sendFilterOn,
+    sendFilterOff
   }
 }

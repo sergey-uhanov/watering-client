@@ -9,7 +9,7 @@ import {useWateringStore} from "@/entities/pool";
 
 const wateringStore = useWateringStore()
 const {isDeviceOnline} = storeToRefs(wateringStore)
-const {sendLedOn, sendLedOff, checkWaterline,sendFilterOn} = useAppWebSocket()
+const {sendLedOn, sendLedOff, checkWaterline,sendFilterOn,sendFilterOff} = useAppWebSocket()
 </script>
 
 <template>
@@ -23,7 +23,8 @@ const {sendLedOn, sendLedOff, checkWaterline,sendFilterOn} = useAppWebSocket()
          <BaseButton :disabled="!isDeviceOnline" @click="sendLedOn">Включить LED</BaseButton>
          <BaseButton :disabled="!isDeviceOnline" @click="sendLedOff">Выключить LED</BaseButton>
          <BaseButton :disabled="!isDeviceOnline" @click="checkWaterline">Замер уровня воды</BaseButton>
-         <BaseButton :disabled="!isDeviceOnline" @click="sendFilterOn">Включить фильтер</BaseButton>
+         <BaseButton :disabled="!isDeviceOnline" @click="sendFilterOn">Включить фильтр</BaseButton>
+         <BaseButton :disabled="!isDeviceOnline" @click="sendFilterOff">Отключить фильтр</BaseButton>
        </div>
        <div class="dashboard-card__panel-information">
          <article class="dashboard-card__info-item">

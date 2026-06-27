@@ -13,6 +13,7 @@ export const WEBSOCKET_MESSAGE_TYPES = {
   ledOff: 'LED_OFF',
   checkWaterline: 'CHECK_WATERLINE',
   sentFilterOn: 'FILTER_ON',
+  sentFilterOff: 'FILTER_OFF',
 } as const
 
 export type WebSocketMessageType =
